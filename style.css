@@ -1,0 +1,28 @@
+body{
+    color:pink;
+    background:yellow;
+    box-shadow: gray;
+}
+#p1{
+    color:blue;
+    background:red;
+
+}
+#p2{
+    color:red;
+    background:blue;
+
+}
+ul.order-list{
+    background: black;
+    margin:20px;
+}
+li.order-item{
+    background: #fff;
+    margin: 10px;
+    padding: 10px;
+}
+li.order-item p.order-id{
+    content:'123';
+    color:pink;
+}
