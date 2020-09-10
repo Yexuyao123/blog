@@ -9,14 +9,14 @@
     </head>
 
     <body>
-        <div class="topNavBar clearfix">
+        <div class="topNavBar clearfix" >
             <!-- 顶部导航条也可写成topNavBar -->
             <!-- <img src="#" alt="logo"/> -->
             <!-- alt英文对应单词alternative，可选内容，如果这个图片下载失败了就选择alt来展示 -->
-            <a class="logo" href="#" alt="logo" style="float:left;" >
+            <a class="logo" href="#" alt="logo" >
                 <span class="RS">RS</span><span class="card">card</span>
             </a>
-            <nav style="float:right;" >
+            <nav>
             <!-- 下面这几个标签是没有顺序的列表用ul包裹起来，ul里面必须有li儿子 -->
                 <ul class="clearfix a">
                     <li class="b">
@@ -44,42 +44,47 @@
             </nav>
             <!-- nav是navigation导航条 -->
         </div>
-        <div class="banner" style="background-image: url(#);"></div>
+        <div class="banner" >
+            <div class="mask"></div>
+            <!-- 背景图片 -->
+        </div>
         <main>
-            <div class="card">
-                <div class="picture">
-                    <img src="" alt="头像">
-                </div> 
-                <div class="text">
-                    <div class="profile">
-                         <span class="welcome">hello</span>  
-                         <h1>叶旭瑶</h1>
-                         <p>前端开发工程师</p>
-                         <hr>
-                         <dl>
-                             <dt>年龄</dt>
-                             <dd>26</dd>
-                             <dt>所在城市</dt>
-                             <dd>厦门</dd>
-                             <dt>我的邮箱</dt>
-                             <dd>584604539@qq.com</dd>
-                             <dt>我的邮箱</dt>
-                             <dd>584604539@qq.com</dd>
-                             <dt>手机</dt>
-                             <dd>1885052****</dd>
-                         </dl>
+            <div class="userCard">
+                <div class="pictureAndText clearfix">
+                    <div class="picture">
+                        <img src="./img/avatar.png" width="300px" height="350px" alt="头像">
+                    </div> 
+                    <div class="text">
+                        <span class="welcome">Hello
+                            <span class="traingle"></span>
+                        </span> 
+                        <h1>叶旭瑶</h1>
+                        <p>前端开发工程师</p>
+                        <hr>
+                        <dl>
+                            <dt>年龄</dt>
+                            <dd>26</dd>
+                            <dt>所在城市</dt>
+                            <dd>厦门</dd>
+                            <dt>我的邮箱</dt>
+                            <dd>584604539@qq.com</dd>
+                            <dt>我的邮箱</dt>
+                            <dd>584604539@qq.com</dd>
+                            <dt>手机</dt>
+                            <dd>1885052****</dd>
+                        </dl>
                     </div>
-                    <footer class="media">
-                         <a href="#"><img scr="#" alt="..."></a>
-                         <a href="#"><img scr="#" alt="..."></a>
-                         <a href="#"><img scr="#" alt="..."></a>
-                         <a href="#"><img scr="#" alt="..."></a>
-                         <a href="#"><img scr="#" alt="..."></a>
-                         <a href="#"><img scr="#" alt="..."></a>
-                         <a href="#"><img scr="#" alt="..."></a>
-                    </footer>
                 </div>
-            </div>
+                <footer class="media">
+                    <a href="#"><img scr="#" alt="..."></a>
+                    <a href="#"><img scr="#" alt="..."></a>
+                    <a href="#"><img scr="#" alt="..."></a>
+                    <a href="#"><img scr="#" alt="..."></a>
+                    <a href="#"><img scr="#" alt="..."></a>
+                    <a href="#"><img scr="#" alt="..."></a>
+                    <a href="#"><img scr="#" alt="..."></a>
+                </footer>
+            </div>    
             <a class="button" href="#">下载 PDF 简历</a>
             <p>
                 叶旭瑶，前端入门学习中<br>
