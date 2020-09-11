@@ -20,7 +20,37 @@ a{
     float:left;
     margin-left:17px;
     margin-right:17px;
+    position: relative;
+    overflow:hidden; 
 }
+@keyframes fly{
+    from{
+        transform:scale(1) translate(-100%,0%);
+    }
+    to{
+        transform:scale(1) translate(0%,0%);
+    }
+}
+/* .fly1{
+    background-color:#e06567;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    top:25px;
+    left:0px;   
+} */
+.b:hover .fly1{
+    background-color:#e06567;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    top:25px;
+    left:0px; 
+    animation: fly 0.5s linear;
+}
+
+
+
 .topNavBar{
     padding: 20px 5px 20px 15px;
     position: fixed;
@@ -52,7 +82,7 @@ a{
 .topNavBar .logo .card{
     color:#b7b7b7;
 }
-nav{
+.nav1{
     float: right;
     padding-top: 7px;
     padding-bottom: 5px;
@@ -67,24 +97,37 @@ nav{
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     display:block;
+    cursor: default;
 }
-.topNavBar nav ul li a:hover{
+
+/* 
+@keyframes slidein{
+    from{
+        transform:scale(1) translate(-100%,0%);
+    }
+    to{
+        transform:scale(1) translate(0%,0%);
+    }
+} */
+
+/* .topNavBar nav ul li a:hover{
     border-bottom: 3px solid #e06567;
-}
+} */
 .banner{
-    background-image: url(./img/milu.jpg);
+    background-image: url(./img/milu1.jpg);
     height: 520px;
 }
 .banner .mask{
     height: 520px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .userCard{
-    background-color:blue;
     max-width: 940px;
     height: 525px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 20px;
+    overflow: hidden;
 }
 .pictureAndText{
     width: 100%;
@@ -93,7 +136,9 @@ nav{
 }
 .picture{
     float: left;
-    padding: 50px 65px 50px 60px
+    margin: 50px 65px 50px 60px;
+    border-radius: 15px;
+    overflow: hidden;
 }
 .text{
     float: left;
@@ -115,6 +160,7 @@ nav{
     方方的做法是由内向外去做*/
     padding:4px 16px 5px 16px;
     position: relative;
+    border-radius: 5px;
 }
 .userCard .welcome .traingle{
     display: inline-block;
@@ -173,17 +219,17 @@ footer .icon{
 }
 footer .tubiao1{
     position:absolute;
-    top:20px;
+    top:18px;
     left:300px;
 }
 footer .tubiao2{
     position:absolute;
-    top:20px;
+    top:18px;
     left:420px;
 }
 footer .tubiao3{
     position:absolute;
-    top:20px;
+    top:18px;
     left:540px;
 }
 .userCard > footer > a{
@@ -194,4 +240,7 @@ footer .tubiao3{
 
 .userCard > footer > a:hover{
     background-color:  #cf5d5f;
+}
+main{
+    margin-top:-230px;
 }
