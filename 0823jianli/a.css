@@ -49,8 +49,6 @@ a{
     animation: fly 0.5s linear;
 }
 
-
-
 .topNavBar{
     padding: 20px 5px 20px 15px;
     position: fixed;
@@ -243,4 +241,89 @@ footer .tubiao3{
 }
 main{
     margin-top:-230px;
+}
+.download-pdf{
+    width:95px;
+    color: rgb(34, 33, 33);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 21px 55px;
+    border:1px solid gray;
+    margin:32px auto;
+    /* text-align: center; */
+    display: block;
+    border-radius: 5px;
+}
+.selfIntroduction{
+    font-size: 18px;
+    color:#000;
+    line-height: 1.8;
+    /* line-height: 32px; */
+}
+.selfIntroduction p{
+    text-align: center;
+}
+.skill{
+    max-width: 940px;
+    height: 314px;
+    margin:60px auto 0;
+}
+.skill h2{
+    font-size: 34px;
+    font-family: "Arial Black";
+    text-align: center;
+    color: rgb(77, 75, 75); 
+    height: 40px;
+}
+.skill ol:hover{
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, .2);
+
+}
+.skill ol{
+    list-style: none;
+    margin:30px 0px 0px;
+    /* border:1px solid rgb(94, 92, 92); */
+    background-color: rgb(255, 253, 253);
+    padding:42px 40px 10px 50px;
+    overflow: hidden;
+    border-radius: 10px;;
+    transition: all .5s;
+}
+.skill > ol > li{
+    float:left;
+    width: 415px;
+    height: 64px;
+    color: #3c3d3d;
+    margin-right: 10px; 
+    position: relative;
+    overflow: hidden;
+}
+.skill > ol > li::before{
+    content: "";
+    background-color:#868282;
+    height: 5px;
+    width:95%;
+    position: absolute;
+    top:25px;
+    left:0px; 
+    /* animation: fly 0.5s linear; */
+}
+
+@keyframes fly2{
+    from{
+        transform:translateX(0%);
+    }
+    to{
+        transform:translateX(100%);
+    }
+}
+.skill > ol > li::after{
+    content: "";
+    background-color:#e06567;
+    height: 5px;
+    width:190px;
+    position: absolute;
+    top:25px;
+    left:0px; 
+    animation: fly 0.5s linear;
 }
