@@ -13,7 +13,7 @@ a{
     display:block;
     clear:both;
 }
-.a{
+.a,ol li{
     list-style: none;
 }
 .b{
@@ -126,6 +126,7 @@ a{
     margin-right: auto;
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0px 1px 5px 3px rgba(82, 81, 81, 0.2);
 }
 .pictureAndText{
     width: 100%;
@@ -218,17 +219,17 @@ footer .icon{
 footer .tubiao1{
     position:absolute;
     top:18px;
-    left:300px;
+    left:322px;
 }
 footer .tubiao2{
     position:absolute;
     top:18px;
-    left:420px;
+    left:442px;
 }
 footer .tubiao3{
     position:absolute;
     top:18px;
-    left:540px;
+    left:562px;
 }
 .userCard > footer > a{
     padding:7px;
@@ -248,11 +249,16 @@ main{
     font-weight: bold;
     font-size: 14px;
     padding: 21px 55px;
-    border:1px solid gray;
+    border:1px solid rgb(173, 172, 172);
     margin:32px auto;
     /* text-align: center; */
     display: block;
     border-radius: 5px;
+    transition: box-shadow 0.8s;
+}
+.download-pdf:hover{
+    box-shadow: 0px 1px 5px 3px rgba(44, 44, 44, 0.2);
+    background-color: rgb(255, 253, 253);
 }
 .selfIntroduction{
     font-size: 18px;
@@ -268,7 +274,7 @@ main{
     height: 314px;
     margin:60px auto 0;
 }
-.skill h2{
+section h2{
     font-size: 34px;
     font-family: "Arial Black";
     text-align: center;
@@ -280,7 +286,6 @@ main{
 
 }
 .skill ol{
-    list-style: none;
     margin:30px 0px 0px;
     /* border:1px solid rgb(94, 92, 92); */
     background-color: rgb(255, 253, 253);
@@ -300,12 +305,13 @@ main{
 }
 .skill > ol > li::before{
     content: "";
-    background-color:#868282;
+    background-color:#d3b6b7;
     height: 5px;
     width:95%;
     position: absolute;
     top:25px;
     left:0px; 
+    border-radius: 2px;
     /* animation: fly 0.5s linear; */
 }
 
@@ -324,6 +330,52 @@ main{
     width:190px;
     position: absolute;
     top:25px;
-    left:0px; 
+    left:0px;
+    border-radius: 2px; 
     animation: fly 0.5s linear;
+}
+.showreel{
+    max-width: 940px;
+    height: 728px;
+    margin:60px auto 100px;
+    /* background-color: yellow; */
+}
+.showreel > nav{
+    width: 245px;
+    height: 59px;
+    margin:32px auto 0;
+    background-color: pink;
+}
+.showreel > nav > ol > li{
+    float:left;
+    font-family: 'Microsoft YaHei';
+    color: #3c3d3d;
+    margin-right: 40px;
+}
+.showreel > nav > ol > li:nth-child(3){
+    margin-right: 0;
+}
+.showreel .state-1{
+    height: 5px;
+    margin: 5px 0 28px;
+    background-color: white;
+    border-radius: 2px;
+}
+/* .showreel .jobs{
+    background-color: violet;
+} */
+.showreel .jobs .big{
+    float: left;
+    width: 606px;
+    height: 597px;
+    /* background-color: teal; */
+}
+.showreel .jobs .small{
+    width: 293px;
+    height: 285px;
+    /* background-color: teal; */
+    margin-left: 647px;
+}
+.showreel .jobs .small-1{
+    margin-bottom: 27px;
 }
