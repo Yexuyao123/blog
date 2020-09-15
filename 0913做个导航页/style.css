@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+kbd{
+    border: 1px solid red;
+    font-size: 16px;
+    padding:16px 24px;
+    display:inline-block;
+    margin-right: 16px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+main > .wrapper > div:nth-child(2){
+    margin-left: 33px;
+}
+main > .wrapper > div:nth-child(3){
+    margin-left: 66px;
+}
+main > .wrapper > div:nth-child(4){
+    margin-left: 99px;
+}
+main{
+    text-align: center;
+}
+.wrapper{
+    display: inline-block;
+}
