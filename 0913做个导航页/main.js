@@ -1,8 +1,8 @@
 var keys = {
-	0: { 0: ' 1 ', 1: ' 2 ', 2: ' 3 ', 3: ' 4 ', 4: ' 5 ', 5: ' 6 ', 6: ' 7 ', 7: ' 8 ', 8: ' 9 ', 9: ' 0 ', 'length': 10 },
-	1: { 0: ' q ', 1: ' w ', 2: ' e ', 3: ' r ', 4: ' t ', 5: ' y ', 6: ' u ', 7: ' i ', 8: ' o ', 9: ' p ', 'length': 10 },
-	2: { 0: ' a ', 1: ' s ', 2: ' d ', 3: ' f ', 4: ' g ', 5: ' h ', 6: ' j ', 7: ' k ', 8: ' l ', 'length': 9 },
-	3: { 0: ' z ', 1: ' x ', 2: ' c ', 3: ' v ', 4: ' b ', 5: ' n ', 6: ' m ', 'length': 7 },
+	0: { 0: '1', 1: '2', 2: '3', 3: '4', 4: '5', 5: '6', 6: '7', 7: '8', 8: '9', 9: '0', 'length': 10 },
+	1: { 0: 'q', 1: 'w', 2: 'e', 3: 'r', 4: 't', 5: 'y', 6: 'u', 7: 'i', 8: 'o', 9: 'p', 'length': 10 },
+	2: { 0: 'a', 1: 's', 2: 'd', 3: 'f', 4: 'g', 5: 'h', 6: 'j', 7: 'k', 8: 'l', 'length': 9 },
+	3: { 0: 'z', 1: 'x', 2: 'c', 3: 'v', 4: 'b', 5: 'n', 6: 'm', 'length': 7 },
 	'length': 4
 }
 // 数组里面有数组
@@ -30,6 +30,13 @@ var hash = {
 	'z': 'zhihu.com',
 	'm': 'www.mcdonalds.com.cn'
 }
+// var hashInLocalStorage = JSON.parse(LocalStorage.getItem('uuu') || '')
+// // 取出localstorage中uuu对应的hash
+// if(hashInLocalStorage){
+// 	hash = hashInLocalStorage
+// }
+//如果用户之前保存过缓存，就会优先选取之前保存的数据
+
 index = 0
 while (index < keys['length']) {//0123
 	hang = document.createElement('div')
@@ -41,8 +48,37 @@ while (index < keys['length']) {//0123
 		//index2的取值：index=0时0-9，index=1时0-9，index=2时0-7，index=3时0-6
 		jian = document.createElement('kbd')
 		jian.textContent = row[index2]
+		bianji = document.createElement('button')
+		bianji.textContent = '编辑'
+		bianji.id = row[index2]
+		bianji.onclick = function(aaa){//监听用户鼠标在编辑容器中即button按钮中点击x所生成的对象
+			key = aaa['target']['id']//获取到用户点击的对象aaa中rarget的id值，如用户点击q，则变量key会被赋值上q
+			// key = key.trim()
+			//! 这是变量值
+			x = prompt('输入你想保存的网址')//weixin.com
+			hash[key] = x//将用户输入的网址写入hash对象中的key的值,即q:weixin.com
+			//! 这是对象里的key值
+			// console.log(hash)
+			// 这里发现hash中存入的不是q:weixin.com，而是' q ':weixin.com导致最后website获取q的值的时候还是原来的值所以应该补充key = key.trim()清楚左右L空格
+			localStorage.setItem('uuu',JSON.stringify(hash))
+			//将用户最新hash数据保存到uuu
+		}
+		jian.appendChild(bianji)
 		hang.appendChild(jian)
 		index2 = index2 + 1
 	}
 	index = index + 1
+}
+document.onkeypress = function(aaa){//监听用户在文件中按下按键x所生成的对象
+	// console.log(hash)
+	key = aaa['key']//带引号的key是字符串（key：value中的key，不带引号的key是变量用来赋值
+	//! 这是变量赋值
+	// console.log(hash[key])
+	website = hash[key]
+	if (website){
+
+		//location.href = 'http://' + website
+		//当前窗口打开
+		window.open('http://' + website,'_blank')//新窗口打开
+	}
 }

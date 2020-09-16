@@ -13,6 +13,7 @@ kbd{
     margin-right: 16px;
     margin-bottom: 18px;
     text-transform: uppercase;
+    position: relative;
 }
 main > .wrapper > div:nth-child(2){
     margin-left: 33px;
@@ -27,5 +28,16 @@ main{
     text-align: center;
 }
 .wrapper{
+    display: inline-block;
+}
+kbd > button{
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    font-size: 10px;
+    display:none
+}
+kbd:hover > button{
     display: inline-block;
 }
