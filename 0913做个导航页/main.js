@@ -30,11 +30,12 @@ var hash = {
 	'z': 'zhihu.com',
 	'm': 'www.mcdonalds.com.cn'
 }
-// var hashInLocalStorage = JSON.parse(LocalStorage.getItem('uuu') || '')
-// // 取出localstorage中uuu对应的hash
-// if(hashInLocalStorage){
-// 	hash = hashInLocalStorage
-// }
+var hashInLocalStorage = JSON.parse(localStorage.getItem('uuu') || 'null')
+// 取出localstorage中uuu对应的hash
+//! 这里的hashInLocalStorage是我们取的一个变量用来存缓存里面的uuu，所以l大写小写都可以
+if(hashInLocalStorage){
+ 	hash = hashInLocalStorage
+}
 //如果用户之前保存过缓存，就会优先选取之前保存的数据
 
 index = 0
@@ -52,7 +53,9 @@ while (index < keys['length']) {//0123
 		bianji.textContent = '编辑'
 		bianji.id = row[index2]
 		bianji.onclick = function(aaa){//监听用户鼠标在编辑容器中即button按钮中点击x所生成的对象
-			key = aaa['target']['id']//获取到用户点击的对象aaa中rarget的id值，如用户点击q，则变量key会被赋值上q
+			key = aaa['target']['id']
+			//! aaa['target']就是用户点击的元素
+			//获取到用户点击的对象aaa中rarget的id值，如用户点击q，则变量key会被赋值上q
 			// key = key.trim()
 			//! 这是变量值
 			x = prompt('输入你想保存的网址')//weixin.com
@@ -62,6 +65,7 @@ while (index < keys['length']) {//0123
 			// 这里发现hash中存入的不是q:weixin.com，而是' q ':weixin.com导致最后website获取q的值的时候还是原来的值所以应该补充key = key.trim()清楚左右L空格
 			localStorage.setItem('uuu',JSON.stringify(hash))
 			//将用户最新hash数据保存到uuu
+			//! 注意这里的localStorage第一个l必须小写
 		}
 		jian.appendChild(bianji)
 		hang.appendChild(jian)
