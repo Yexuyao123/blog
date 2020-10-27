@@ -3,6 +3,7 @@
 // 1 * 1 = 1
 // 1 * 2 = 2  2 * 2 = 4
 
+//第一稿（死的）
 for (let i = 1; i < 10; i++) {
 	// console.log(i)
 	let j = 1
@@ -22,6 +23,7 @@ for (let i = 1; i < 10; i++) {
 	// ARR1.join('  ')
 }
 
+//第二稿（任意n阶）
 function 我想要n阶乘法表(imax) {
 	let jmax = Number(imax)
 	let ijmax = imax * imax
@@ -69,8 +71,7 @@ function 我想要n阶乘法表(imax) {
 }
 
 
-
-
+//第三稿（调整好右对齐完稿）
 function 我想要n阶乘法表(imax) {
 	let jmax = Number(imax)
 	let ijmax = imax * imax
@@ -120,13 +121,11 @@ function 我想要n阶乘法表(imax) {
 	return undefined
 }
 我想要n阶乘法表(imax)
+//j.toString()不建议用，可以用j+''转为字符串
 
 
 
-
-
-
-
+//第四稿（大神林的示例）
 function fixed(str, n) {
 	str = str + "";
 	while (str.length < n) {
@@ -152,6 +151,7 @@ function fn(num) {
 fn(16);
 
 
+//第五稿（优化第三稿）
 function helper(数字, 最长的时候) {
 	let 目标 = Array.from(数字 + '')
 	let 长度差 = 最长的时候.toString().length - 目标.length;
@@ -162,7 +162,6 @@ function helper(数字, 最长的时候) {
 	}
 	return 目标.join('')
 }
-
 function 我想要n阶乘法表(imax) {
 	let jmax = +imax || 0
 	for (let i = 1; i < jmax + 1; i++) {
@@ -178,13 +177,7 @@ function 我想要n阶乘法表(imax) {
 
 
 
-
-
-
-
-
-
-
+//第六稿（1026复习）
 function beaStr(getNum, maxLenth) {
 	var aim = Array.from(getNum + '')
 	let far = maxLenth.toString().length - aim.length
@@ -195,7 +188,6 @@ function beaStr(getNum, maxLenth) {
 	}
 	return aim.join('')
 }
-
 function aaa(n) {
 	for (i = 1; i < n + 1; i++) {
 		let putOut = [];
@@ -205,5 +197,4 @@ function aaa(n) {
 		console.log(putOut.join('  '))
 	}
 }
-
 aaa(12)
