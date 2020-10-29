@@ -155,7 +155,6 @@ iWantN(100)
 //36以内分解只需123456
 //!for里面的i也要let声明
 //记住了
-
 function iWantN(findInN) {
   if (findInN >= 2) {
     let printOut = [2]
@@ -178,3 +177,10 @@ function iWantN(findInN) {
   }
 }
 iWantN(100) 
+
+
+
+
+//平方根： i ** 0.5或者Math.sqrt(i)
+//遍历已确认的质数 或者遍历3及其以上的奇数
+//显然遍历质数更少些
