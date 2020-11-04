@@ -42,3 +42,41 @@ fn.add();
 fn.minus();
 fn.minus();
 fn.minus();
+
+///this练习
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.guojia = "中国";
+  this.ziwojieshao = function () {
+    console.log(`我是${this.name}`);
+    console.log(`我现在${this.age}岁`);
+    console.log(`我是${this.guojia}人`);
+  };
+}
+
+Person.prototype.hello = function () {
+  console.log(this);
+};
+
+let 小明 = new Person("小明", 18);
+let 小红 = new Person("小红", 16);
+
+console.log(小明);
+console.log(小红);
+
+console.log(小明.ziwojieshao === 小红.ziwojieshao);
+console.log(小明.hello === 小红.hello);
+
+小明.ziwojieshao();
+小明.guojia = "美国";
+小明.ziwojieshao();
+小明.ziwojieshao = function () {};
+console.log("---");
+小红.ziwojieshao();
+
+Person.prototype.ziwojieshao = function () {
+  console.log("我不自我介绍了");
+};
+
+小红.ziwojieshao();
