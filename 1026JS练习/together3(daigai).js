@@ -11,6 +11,13 @@
 // 链接：https://leetcode-cn.com/problems/3sum
 // 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
+//去重
+let arr = [1, 2, 2, 3]; // [1, 2, 2, 3]
+let set = new Set(arr); //去掉重复数据，返回结果是'set'，是对象
+let newArr = Array.from(set); //将set转化为数组
+console.log(newArr); // [1, 2, 3]
+
+//第一版
 var threeSum = function (nums) {
   let result = [];
   for (let i = 0; i < nums.length - 2; i++) {
