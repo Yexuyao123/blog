@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.canvasBody {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  /* flex布局 */
+  display: flex;
+  flex-direction: column;
+}
+.topBar {
+  height: 8%;
+  width: 100%;
+  background-color: rgba(76, 139, 111, 0.479);
+  /* 居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myTitle {
+  /* text-align: center; */
+  font-family: fantasy;
+  font-size: 200%;
+  color: rgb(50, 80, 90);
+}
+#paintBoard {
+  flex: 1;
+  background-color: bisque;
+  height: 92%;
+  width: 100%;
+}
+/* canvas有点像img
+有默认高度和宽度，在CSS设置高宽是没有效果的
+需要在html中设置高宽（高宽确定，高宽比也确定）
+这时再来设置CSS就可以等比例缩放 
+因此一般推荐用HTML来控制canvas的宽高，或用其他方法，不要用CSS来控制*/
+/* 教程https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial */
+#canvas {
+  background-color: rgb(206, 243, 197);
+  /* width: 300; */
+  display: block;
+  float: left;
+}
+#tools {
+  height: 100%;
+  width: 10%;
+  background-color: rgb(138, 252, 186);
+  float: left;
+}

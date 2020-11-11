@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.canvasBody {
+  position: relative;
+}
+.topBar {
+  height: 8vh;
+  width: 100vw;
+  background-color: rgba(114, 134, 125, 0.5);
+  /* 居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myTitle {
+  /* text-align: center; */
+  font-family: fantasy;
+  font-size: 40px;
+  color: rgb(50, 80, 90);
+}
+#paintBoard {
+  background-color: bisque;
+  height: 92vh;
+  width: 100vw;
+}
+#smallPoint {
+}
