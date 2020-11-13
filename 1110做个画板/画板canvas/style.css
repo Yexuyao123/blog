@@ -5,40 +5,60 @@
 a {
   text-decoration: none;
 }
+/* flex布局 */
+.box {
+  display: flex;
+  /* 添加儿子排列方向flex-direction:column(垂直)，row(水平) */
+}
+.boxLastSon {
+  flex: 1;
+}
+/* 清除浮动 */
 .clearfix:after {
   content: "";
   display: block;
   clear: both;
+}
+/* 居中 */
+.toCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* icon引用CSS */
+.icon {
+  width: 30px;
+  height: 30px;
+  /* vertical-align: -0.15em; */
+  fill: rgb(29, 50, 51);
+  /* overflow: hidden; */
+  display: block;
+  margin: 5px auto auto;
 }
 
 .canvasBody {
   position: relative;
   height: 100vh;
   width: 100vw;
-  /* flex布局 */
-  display: flex;
   flex-direction: column;
 }
 .topBar {
   height: 8%;
   width: 100%;
-  background-color: rgba(76, 139, 111, 0.479);
-  /* 居中 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgb(117, 178, 183);
 }
 .myTitle {
   /* text-align: center; */
   font-family: fantasy;
   font-size: 200%;
-  color: rgb(50, 80, 90);
+  color: rgb(173, 105, 67);
+  /* color: rgb(10, 69, 73); */
 }
 #paintBoard {
-  flex: 1;
   background-color: bisque;
   height: 92%;
   width: 100%;
+  flex-direction: row;
 }
 /* canvas有点像img
 有默认高度和宽度，在CSS设置高宽是没有效果的
@@ -47,14 +67,85 @@ a {
 因此一般推荐用HTML来控制canvas的宽高，或用其他方法，不要用CSS来控制*/
 /* 教程https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial */
 #canvas {
-  background-color: rgb(206, 243, 197);
-  /* width: 300; */
+  background-color: rgb(239, 247, 238);
+  /* width: 90% */
   display: block;
-  float: left;
+  /* float: left; */
 }
 #tools {
   height: 100%;
-  width: 10%;
-  background-color: rgb(138, 252, 186);
-  float: left;
+  width: 200px;
+  background-color: rgb(183, 227, 224);
+  /* float: left; */
+}
+.seletionTools {
+  width: 100%;
+  height: 60px;
+}
+.seletion {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: solid 2px cadetblue;
+  background-color: rgb(217, 250, 246);
+}
+#usePen {
+  background-color: rgb(218, 164, 134);
+}
+.nowTools {
+  background-color: rgba(173, 105, 67, 0.8);
+  width: 100%;
+  height: 30px;
+  color: rgb(10, 69, 73);
+  font-weight: bold;
+}
+.uponColor,
+.uponDiamiter {
+  width: 100%;
+  height: 50px;
+  background-color: #90d3da;
+}
+#uponPenColor {
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 15px;
+}
+#selectPenColor {
+  background-color: rgba(13, 102, 110, 0.7);
+  /* background-color: rgb(188, 227, 224); */
+  width: 100%;
+  height: 50px;
+}
+#uponPenDiamiter {
+  width: 6px;
+  height: 6px;
+  background-color: rgb(10, 69, 73);
+  border-radius: 3px;
+}
+#selectPenDiamiter {
+  background-color: rgba(13, 102, 110, 0.7);
+  width: 100%;
+  height: 80px;
+}
+.erase {
+  display: none;
+}
+.uponErase {
+  background-color: rgb(188, 227, 224);
+  width: 100%;
+  height: 60px;
+}
+#uponEraseSize {
+  width: 20px;
+  height: 15px;
+  background-color: rgb(10, 69, 73);
+  border-radius: 10px;
+}
+#selectEraseSize {
+  background-color: rgba(13, 102, 110, 0.7);
+  width: 100%;
+  height: 100px;
 }

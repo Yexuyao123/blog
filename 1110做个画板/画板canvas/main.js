@@ -34,6 +34,10 @@
 // lineTo(x, y)
 // ctx即context
 
+// 获取标签通过id
+function getElement (id) {
+  return document.getElementById(id)
+}
 // 生成一个element
 function addLabel (laber, attributes) {
   const element = document.createElement(laber)
@@ -64,22 +68,64 @@ function drawLine (m, n, x, y, lineColor, lineWidth, idNames) {
   ctx.stroke() // 绘制
   ctx.closePath()
 }
+// 橡皮檫
+function clearRect (x, y, width, height, idNames) {
+  const canvas = document.getElementById(idNames)
+  const ctx = canvas.getContext("2d") // 获取上下文环境
+  ctx.clearRect(x, y, width, height)
+}
+
 // 设置canvas的大小
 function getParentSize (idNames) {
   const canvas = document.getElementById(idNames)
   const brothers = canvas.nextElementSibling
   const canvasWrap = canvas.parentNode
-  canvas.width = canvasWrap.clientWidth - brothers.clientWidth // 获取到父元素的宽高并复制给canvas的宽高
+  canvas.width = canvasWrap.clientWidth - brothers.clientWidth
+  // 获取到父元素的宽高并复制给canvas的宽高
+  // 扣除tools的宽
+  // console.log(brothers.clientWidth)
   canvas.height = canvasWrap.clientHeight
-}
-// 获取标签通过id
-function getElement (id) {
-  return document.getElementById(id)
 }
 
 const paintBoard = getElement("paintBoard")
 let painting = false // 记鼠标状态何时画画
 const lastPoint = [] // 记录最后一个点坐标
+const penOrErase = { pen: true, erase: false }
+const usePen = getElement("usePen")
+const useErase = getElement("useErase")
+const pen = getElement("pen")
+const erase = getElement("erase")
+
+function onPen (e) {
+  penOrErase.pen = true
+  penOrErase.erase = false
+  // 按下鼠标
+  paintBoard.onmousedown = onMouseDown
+  // 移动鼠标
+  document.onmousemove = onMouseMove
+  // 松开鼠标
+  document.onmouseup = onMouseUp
+  pen.style.display = "block"
+  erase.style.display = "none"
+  usePen.style.backgroundColor = "rgb(218, 164, 134)"
+  useErase.style.backgroundColor = "rgb(217, 250, 246)"
+}
+function onErase (e) {
+  penOrErase.pen = false
+  penOrErase.erase = true
+  // 按下鼠标
+  paintBoard.onmousedown = onMouseDownClearRect
+  // 移动鼠标
+  document.onmousemove = onMouseMoveClearRect
+  // 松开鼠标
+  document.onmouseup = onMouseUpClearRect
+  pen.style.display = "none"
+  erase.style.display = "block"
+  useErase.style.backgroundColor = "rgb(218, 164, 134)"
+  usePen.style.backgroundColor = "rgb(217, 250, 246)"
+}
+usePen.onclick = onPen
+useErase.onclick = onErase
 
 getParentSize("canvas")
 
@@ -94,12 +140,8 @@ if (document.body.ontouchstart !== undefined) { // 触屏检测：不是undefine
   paintBoard.ontouchmove = onTouchMove
   paintBoard.ontouchend = onMouseUp
 } else {
-  // 按下鼠标
-  paintBoard.onmousedown = onMouseDown
-  // 移动鼠标
-  document.onmousemove = onMouseMove
-  // 松开鼠标
-  document.onmouseup = onMouseUp
+  usePen.onclick = onPen
+  useErase.onclick = onErase
 }
 
 function onTouchStart (e) {
@@ -127,7 +169,7 @@ function onMouseDown (e) {
   painting = true
   const x = e.layerX
   const y = e.layerY
-  drawCilcle(x, y, 4, "black", "canvas")
+  drawCilcle(x, y, uponDiamiter, uponColor, "canvas")
   lastPoint.push(x)
   lastPoint.push(y)
 }
@@ -135,7 +177,7 @@ function onMouseMove (e) {
   if (painting) {
     const x = e.layerX
     const y = e.layerY
-    drawLine(lastPoint[0], lastPoint[1], x, y, "black", 4, "canvas")
+    drawLine(lastPoint[0], lastPoint[1], x, y, uponColor, uponDiamiter, "canvas")
     lastPoint[0] = x
     lastPoint[1] = y
   }
@@ -144,11 +186,128 @@ function onMouseUp () {
   painting = false
   lastPoint.splice(0, lastPoint.length)
 }
+function onMouseDownClearRect (e) {
+  painting = true
+  const x = e.layerX
+  const y = e.layerY
+  clearRect(x, y, (uponErase / 3 * 4), uponErase, "canvas")
+}
+function onMouseMoveClearRect (e) {
+  if (painting) {
+    const x = e.layerX
+    const y = e.layerY
+    clearRect(x, y, (uponErase / 3 * 4), uponErase, "canvas")
+  }
+}
+function onMouseUpClearRect (e) {
+  painting = false
+}
 
+// 工具栏
+const tools = getElement("tools")
 const useEraser = addLabel("button", {
   className: "useEraser",
-  style: "width:" + 50 + "px; height:" + 25 + "px;",
-  textContent: "橡皮檫"
+  style: "width:" + 80 + "%; height:" + 25 + "px;",
+  textContent: "橡皮擦"
 })
-const tools = getElement("tools")
-tools.appendChild(useEraser)
+if (document.body.ontouchstart !== undefined) {
+  useEraser.style = "width:" + 90 + "%; height:" + 25 + "px;" +
+  "font-size:" + 8 + "px"
+  tools.appendChild(useEraser)
+}
+
+// 追加9个颜色
+const nineColor = getElement("nineColor")
+// const palette = { color1: "black", color2: "white", color3: "red", color4: "rgb(247, 91, 1)", color5: "yellow", color6: "green", color7: "blue", color8: "rgb(227, 1, 247)", color9: "rgb(110, 0, 86)" }
+// for (let i = 1; i < 10; i++) {
+//   const oneColor = addLabel("div", {
+//     className: "pencolor",
+//     style: "width:" + 20 + "px; height:" + 20 + "px;border-radius: " + 10 + "px;" +
+//     "background-color:" + palette["color" + (i)] +
+//     ";float:left;"
+//   })
+//   oneColor.id = "color" + i
+//   oneColor.onclick = onClickColors
+//   nineColor.appendChild(oneColor)
+// }
+
+// function onClickColors (e) {
+//   const color = e.target.id
+//   const getColor = palette[color]
+//   uponPenColor.style.backgroundColor = getColor
+// }
+// Object.values(palette)
+const palette = ["black", "white", "red", "rgb(247, 91, 1)", "yellow", "green", "blue", "rgb(227, 1, 247)", "rgb(110, 0, 86)"]
+const uponPenColor = getElement("uponPenColor")
+palette.forEach(function (color, index) {
+  const oneColor = addLabel("div", {
+    className: "pencolor",
+    style: "width:" + 20 + "px; height:" + 20 +
+    "px;border-radius: " + 10 + "px;" +
+    "background-color:" + color +
+    ";float:left;margin:0 1px 0;"
+  })
+  oneColor.id = "color_" + index
+  oneColor.onclick = onClickColors
+  nineColor.appendChild(oneColor)
+})
+// 监听点击元素的background
+let uponColor = "black"
+function onClickColors (e) {
+  const color = e.target.id.split("_")[1]
+  const getColor = palette[color]
+  uponPenColor.style.backgroundColor = getColor
+  // console.log(getColor)
+  uponColor = getColor
+}
+
+// 追加4个直径
+const fourDiamiter = getElement("fourDiamiter")
+const penSize = [6, 12, 18, 24]
+const uponPenDiamiter = getElement("uponPenDiamiter")
+penSize.forEach(function (diamiter, index) {
+  const oneDiamiter = addLabel("div", {
+    className: "penSize",
+    style: "width:" + diamiter + "px; height:" + diamiter + "px;border-radius: " + (diamiter / 2) + "px;" +
+    "background-color:rgb(188,227,224);float:left; margin:0 10px 0;"
+  })
+  oneDiamiter.id = "diamiter_" + index
+  oneDiamiter.onclick = onClickDiamiter
+  fourDiamiter.appendChild(oneDiamiter)
+})
+// 监听点击元素的Diamiter
+let uponDiamiter = 6
+function onClickDiamiter (e) {
+  const Diamiter = e.target.id.split("_")[1]
+  const getDiamiter = penSize[Diamiter]
+  uponPenDiamiter.style.width = getDiamiter + "px"
+  uponPenDiamiter.style.height = getDiamiter + "px"
+  uponPenDiamiter.style.borderRadius = (getDiamiter / 2) + "px"
+  uponDiamiter = getDiamiter
+}
+
+// 追加4个橡皮檫尺寸
+const fourSize = getElement("fourSize")
+const eraseSize = [10, 15, 20, 25]
+const uponEraseSize = getElement("uponEraseSize")
+eraseSize.forEach(function (diamiter, index) {
+  const oneErase = addLabel("div", {
+    className: "eraseSize",
+    style: "width:" + (diamiter / 3 * 4) + "px; height:" + diamiter + "px;border-radius: " + (diamiter / 3 * 2) + "px;" +
+    "background-color:rgb(188,227,224);float:left; margin:0 10px 0;"
+  })
+  oneErase.id = "size_" + index
+  oneErase.onclick = onClickErase
+  fourSize.appendChild(oneErase)
+})
+// 监听点击元素的size
+let uponErase = 15
+function onClickErase (e) {
+  const size = e.target.id.split("_")[1]
+  const getSize = eraseSize[size]
+  uponEraseSize.style.width = (getSize / 3 * 4) + "px"
+  uponEraseSize.style.height = getSize + "px"
+  uponEraseSize.style.borderRadius = (getSize / 3 * 2) + "px"
+  // 注意这里px后面不能加分号；
+  uponErase = getSize
+}
