@@ -6,10 +6,10 @@
     <!--width=device-width页面宽度=设备宽度 user-scalable=no用户是否可以缩放 initial-scale=1.0初始缩放比例/最大最小缩放比例 -->
     <title>简易画板</title>
     <link rel="stylesheet" href="./style.css" />
-    <script src="//at.alicdn.com/t/font_2202670_dme4z2nn8el.js"></script>
+    <script src="//at.alicdn.com/t/font_2202670_87w21gi5nnw.js"></script>
   </head>
 
-  <body class="canvasBody box">
+  <body id="canvasBody" class="canvasBody box">
     <header id="toBar" class="topBar toCenter">
       <div class="myTitle">
         <p>M y C a n v a s</p>
@@ -19,7 +19,21 @@
       <canvas id="canvas" class="boxLastSon" ></canvas>
       <div id="tools">
 
-        <div class="seletionTools toCenter">
+        <!-- 清屏和下载 -->
+        <div id="deleteDownloadTools" class="deleteDownloadTools toCenter">
+          <div class="onlySon">
+            <div id="useDelete" class="seletion toCenter">
+              <svg class="icon" ><use xlink:href="#icon-delete"></use></svg>
+            </div>
+            <div id="useDownload" class="seletion toCenter">
+              <svg class="icon" ><use xlink:href="#icon-download"></use></svg>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 选择工具 -->
+        <div id="seletionTools" class="seletionTools toCenter">
           <div class="onlySon">
             <div id="usePen" class="seletion toCenter">
               <svg class="icon" ><use xlink:href="#icon-pen"></use></svg>
@@ -30,6 +44,7 @@
           </div>
         </div>
 
+        <!-- 画笔 -->
         <div id="pen" class="pen">
           <div id="useingPen" class="nowTools toCenter"><p>绘图</p></div>
 
@@ -50,6 +65,7 @@
           </div>
         </div>
 
+        <!-- 橡皮檫 -->
         <div id="erase" class="erase">
           <div id="useingErase"  class="nowTools toCenter"><p>橡皮擦</p></div>
 
@@ -60,6 +76,8 @@
             <div id="fourSize" class="clearfix"></div>
           </div>
         </div>
+
+
 
 
       </div>

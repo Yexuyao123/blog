@@ -80,7 +80,7 @@ a {
 }
 .seletionTools {
   width: 100%;
-  height: 60px;
+  height: 80px;
 }
 .seletion {
   display: inline-block;
@@ -90,14 +90,16 @@ a {
   margin-left: 10px;
   border: solid 2px cadetblue;
   background-color: rgb(217, 250, 246);
+  border-radius: 5px;
 }
 #usePen {
-  background-color: rgb(218, 164, 134);
+  /* background-color: rgb(218, 164, 134); */
+  background-color: rgba(13, 102, 110, 0.7);
 }
 .nowTools {
   background-color: rgba(173, 105, 67, 0.8);
   width: 100%;
-  height: 30px;
+  height: 40px;
   color: rgb(10, 69, 73);
   font-weight: bold;
 }
@@ -148,4 +150,38 @@ a {
   background-color: rgba(13, 102, 110, 0.7);
   width: 100%;
   height: 100px;
+}
+.hidden {
+  display: none;
+}
+
+.pen,
+.erase {
+  animation: slidein 0.5s 1 linear;
+}
+@keyframes slidein {
+  from {
+    display: inline-block;
+    transform: translateY(50px);
+  }
+  to {
+    display: inline-block;
+    transform: translateY(0px);
+  }
+}
+
+.deleteDownloadTools {
+  width: 100%;
+  height: 80px;
+}
+@keyframes blink {
+  from {
+    background-color: rgba(13, 102, 110, 0.7);
+  }
+  to {
+    background-color: rgb(217, 250, 246);
+  }
+}
+.blink {
+  animation: blink 0.1s linear;
 }

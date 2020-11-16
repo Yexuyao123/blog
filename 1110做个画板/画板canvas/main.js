@@ -95,6 +95,12 @@ const usePen = getElement("usePen")
 const useErase = getElement("useErase")
 const pen = getElement("pen")
 const erase = getElement("erase")
+const canvas = getElement("canvas")
+let firstTime = true
+let uponColor = "black"
+let uponDiamiter = 6
+let ifDelete = false // 监听是否清屏
+let ifDownload = false // 监听是否下载
 
 function onPen (e) {
   penOrErase.pen = true
@@ -105,10 +111,12 @@ function onPen (e) {
   document.onmousemove = onMouseMove
   // 松开鼠标
   document.onmouseup = onMouseUp
+  pen.style.animation = "slidein 0.5s 1 linear"
   pen.style.display = "block"
   erase.style.display = "none"
-  usePen.style.backgroundColor = "rgb(218, 164, 134)"
+  usePen.style.backgroundColor = " rgba(13, 102, 110, 0.7)"
   useErase.style.backgroundColor = "rgb(217, 250, 246)"
+  firstTime = false
 }
 function onErase (e) {
   penOrErase.pen = false
@@ -120,9 +128,11 @@ function onErase (e) {
   // 松开鼠标
   document.onmouseup = onMouseUpClearRect
   pen.style.display = "none"
+  erase.style.animation = "slidein 0.5s 1 linear"
   erase.style.display = "block"
-  useErase.style.backgroundColor = "rgb(218, 164, 134)"
+  useErase.style.backgroundColor = " rgba(13, 102, 110, 0.7)"
   usePen.style.backgroundColor = "rgb(217, 250, 246)"
+  firstTime = false
 }
 usePen.onclick = onPen
 useErase.onclick = onErase
@@ -133,13 +143,59 @@ getParentSize("canvas")
 window.addEventListener("resize", function (e) {
   getParentSize("canvas")
 })
+// 清屏
+const useDelete = getElement("useDelete")
+useDelete.addEventListener("click", function (e) {
+  getParentSize("canvas")
+  useDelete.classList.add("blink")
+  ifDelete = true
+})
+// 下载
+const useDownload = getElement("useDownload")
+// useDownload.addEventListener("click", function (e) {
+//   downloadCanvas(this, canvas, "image.png")
+// })
+// function downloadCanvas (link, canvasId, filename) {
+//   link.href = canvasId.toDataURL(filename)
+//   console.log(link.href)
+//   link.Download = filename
+// }
+useDownload.addEventListener("click", function (e) {
+  useDownload.classList.add("blink")
+  ifDownload = true
+  const url = canvas.toDataURL("image/png")
+  const a = addLabel("a")
+  a.href = url
+  a.Download = "xxxxxxx"
+  a.click()
+})
 
 // 状态检验
 if (document.body.ontouchstart !== undefined) { // 触屏检测：不是undefined就是null，null表示可以触屏
+  const canvasBody = getElement("canvasBody")
+  canvasBody.style.position = "fixed"
+  canvasBody.style.top = "0"
+  canvasBody.style.left = "0" // 解决手机触屏会拖动页面而不是使用画笔的bug
+  const seletionTools = getElement("seletionTools")
+  const deleteDownloadTools = getElement("deleteDownloadTools")
+  deleteDownloadTools.classList.add("hidden")
+  seletionTools.classList.add("hidden")
+  pen.classList.add("hidden")
+  erase.classList.add("hidden")
+  const tools = getElement("tools")
+  tools.style.width = "50px"
   paintBoard.ontouchstart = onTouchStart
   paintBoard.ontouchmove = onTouchMove
   paintBoard.ontouchend = onMouseUp
 } else {
+  if (firstTime) {
+    // 按下鼠标
+    paintBoard.onmousedown = onMouseDown
+    // 移动鼠标
+    document.onmousemove = onMouseMove
+    // 松开鼠标
+    document.onmouseup = onMouseUp
+  }
   usePen.onclick = onPen
   useErase.onclick = onErase
 }
@@ -167,6 +223,12 @@ function onTouchMove (e) {
 }
 function onMouseDown (e) {
   painting = true
+  if (ifDelete) {
+    useDelete.classList.remove("blink")
+  }
+  if (ifDownload) {
+    useDownload.classList.remove("blink")
+  }
   const x = e.layerX
   const y = e.layerY
   drawCilcle(x, y, uponDiamiter, uponColor, "canvas")
@@ -177,12 +239,13 @@ function onMouseMove (e) {
   if (painting) {
     const x = e.layerX
     const y = e.layerY
+    drawCilcle(x, y, uponDiamiter, uponColor, "canvas")
     drawLine(lastPoint[0], lastPoint[1], x, y, uponColor, uponDiamiter, "canvas")
     lastPoint[0] = x
     lastPoint[1] = y
   }
 }
-function onMouseUp () {
+function onMouseUp (e) {
   painting = false
   lastPoint.splice(0, lastPoint.length)
 }
@@ -204,20 +267,18 @@ function onMouseUpClearRect (e) {
 }
 
 // 工具栏
-const tools = getElement("tools")
-const useEraser = addLabel("button", {
-  className: "useEraser",
-  style: "width:" + 80 + "%; height:" + 25 + "px;",
-  textContent: "橡皮擦"
-})
-if (document.body.ontouchstart !== undefined) {
-  useEraser.style = "width:" + 90 + "%; height:" + 25 + "px;" +
-  "font-size:" + 8 + "px"
-  tools.appendChild(useEraser)
-}
+// const tools = getElement("tools")
+// const useEraser = addLabel("button", {
+//   className: "useEraser",
+//   style: "width:" + 80 + "%; height:" + 25 + "px;",
+//   textContent: "橡皮擦"
+// })
+// useEraser.style = "width:" + 90 + "%; height:" + 25 + "px;" +
+//   "font-size:" + 8 + "px"
+//   tools.appendChild(useEraser)
 
 // 追加9个颜色
-const nineColor = getElement("nineColor")
+// const nineColor = getElement("nineColor")
 // const palette = { color1: "black", color2: "white", color3: "red", color4: "rgb(247, 91, 1)", color5: "yellow", color6: "green", color7: "blue", color8: "rgb(227, 1, 247)", color9: "rgb(110, 0, 86)" }
 // for (let i = 1; i < 10; i++) {
 //   const oneColor = addLabel("div", {
@@ -237,6 +298,7 @@ const nineColor = getElement("nineColor")
 //   uponPenColor.style.backgroundColor = getColor
 // }
 // Object.values(palette)
+const nineColor = getElement("nineColor")
 const palette = ["black", "white", "red", "rgb(247, 91, 1)", "yellow", "green", "blue", "rgb(227, 1, 247)", "rgb(110, 0, 86)"]
 const uponPenColor = getElement("uponPenColor")
 palette.forEach(function (color, index) {
@@ -252,7 +314,6 @@ palette.forEach(function (color, index) {
   nineColor.appendChild(oneColor)
 })
 // 监听点击元素的background
-let uponColor = "black"
 function onClickColors (e) {
   const color = e.target.id.split("_")[1]
   const getColor = palette[color]
@@ -276,7 +337,6 @@ penSize.forEach(function (diamiter, index) {
   fourDiamiter.appendChild(oneDiamiter)
 })
 // 监听点击元素的Diamiter
-let uponDiamiter = 6
 function onClickDiamiter (e) {
   const Diamiter = e.target.id.split("_")[1]
   const getDiamiter = penSize[Diamiter]
