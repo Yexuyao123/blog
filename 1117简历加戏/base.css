@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+ol li {
+  list-style: none;
+}
+/* flex布局 */
+.box {
+  display: flex;
+  /* 添加儿子排列方向flex-direction:column(垂直)，row(水平) */
+}
+.boxLastSon {
+  flex: 1;
+}
+/* 居中 */
+.displayCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
