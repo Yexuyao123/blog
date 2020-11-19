@@ -11,4 +11,15 @@ function addLabel (laber, attributes) {
   }
   return element
 }
-export { getElement, addLabel }
+
+function addClass (ele, className) {
+  ele.classList.add(className)
+} // 添加类别
+function removeClass (ele, className) {
+  ele.classList.remove(className)
+} // 移除类别
+function changeClass (ele, classList) {
+  ele.className = classList
+} // 更改类别
+
+export { getElement, addLabel, addClass, removeClass, changeClass }
