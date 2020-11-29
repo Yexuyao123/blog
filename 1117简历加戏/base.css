@@ -15,9 +15,15 @@ a {
   display: block;
   clear: both;
 }
-ol li {
+ol li,
+ul li {
   list-style: none;
 }
+/* 不换行 */
+.noswrap {
+  white-space: nowrap;
+}
+
 /* flex布局 */
 .box {
   display: flex;

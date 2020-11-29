@@ -1,9 +1,9 @@
 "use strict"
 // const getElement = require("./util").getElement
 // const addLabel = require("./util").addLabel
-import { getElement, addLabel, addClass, removeClass, changeClass } from "./util/util.js"
+import { getElement, addLabel, addClass, removeClass, changeClass, getTagName } from "./util/util.js"
 
-const getEls = ["portfolio1", "portfolio2", "portfolio3", "portfolioBar", "picturejobs1", "picturejobs2", "picturejobs3", "zuopinji", "wrapper", "topNavBar", "body"]
+const getEls = ["portfolio1", "portfolio2", "portfolio3", "portfolioBar", "picturejobs1", "picturejobs2", "picturejobs3", "zuopinji", "wrapper", "topNavBar", "body", "backToTop", "userCard", "skill"]
 const eleMap = {}
 getEls.forEach(id => {
   eleMap[id] = getElement(id)
@@ -65,11 +65,11 @@ setTimeout(function () {
   removeClass(eleMap.body, "hidden")
 }, 3000)
 // 用户关闭页面之前和刷新页面时触发
-// window.onbeforeunload = function (e) {
-//   console.log(e)
-//   document.documentElement.scrollTop = 0 // ie下
-//   document.html.scrollTop = 0 // 非ie
-// }
+window.onbeforeunload = function (e) {
+  console.log(e)
+  document.documentElement.scrollTop = 0 // ie下
+  document.html.scrollTop = 0 // 非ie
+}
 
 // 滚动监听，导航栏变化
 //! const compareDeltaY = { now: 0, later: 1, laterY: null }
@@ -165,4 +165,103 @@ window.onscroll = function (e) {
 function compareDelta () {
   removeClass(eleMap.topNavBar, "sticky")
   ifScroll = false
+}
+
+// 作品博客下拉菜单
+const liTags = document.getElementsByClassName("menuTigger")
+// 找到ul节点
+// for (let i = 0; i < liTags.length; i++) {
+//   liTags[i].onmouseenter = function (e) {
+//     const li = e.currentTarget
+//     const brother = li.getElementsByTagName("ul")[0]
+//     removeClass(brother, "display-none")
+//   }
+//   liTags[i].onmouseleave = function (e) {
+//     const li = e.currentTarget
+//     const brother = li.getElementsByTagName("ul")[0]
+//     addClass(brother, "display-none")
+//   }
+// }
+for (let i = 0; i < liTags.length; i++) {
+  // 鼠标进入
+  liTags[i].onmouseenter = function (e) {
+    const li = e.currentTarget
+    const brother = li.getElementsByTagName("ul")[0]
+    const fly1 = li.getElementsByClassName("fly1")[0]
+    removeClass(brother, "hide")
+    addClass(brother, "show")
+    removeClass(brother, "display-none")
+    addClass(fly1, "display-none")
+  }
+  // 鼠标离开
+  liTags[i].onmouseleave = function (e) {
+    const li = e.currentTarget
+    const brother = li.getElementsByTagName("ul")[0]
+    const fly1 = li.getElementsByClassName("fly1")[0]
+    removeClass(brother, "show")
+    addClass(brother, "hide")
+    setTimeout(function () {
+      addClass(brother, "display-none")
+      removeClass(fly1, "display-none")
+    }, 4000)
+  }
+}
+
+// 滚动划入+对应高亮
+const baTags = document.getElementsByClassName("ba")
+let hightLight = ""
+window.onscroll = function (e) {
+  if (window.scrollY > 100 && window.scrollY < 400) {
+    hightLight = "#userCard"
+  } else if (window.scrollY > 400 && window.scrollY < 1100) {
+    hightLight = "#skill"
+    addClass(eleMap.skill, "slideUp")
+    setTimeout(removeClass(eleMap.skill, "margin-top100"), 5000)
+  } else if (window.scrollY > 1100) {
+    hightLight = "#zuopinji"
+    addClass(eleMap.zuopinji, "slideUp")
+    setTimeout(removeClass(eleMap.zuopinji, "margin-top100"), 5000)
+  }
+  for (let i = 0; i < baTags.length; i++) {
+    // console.log(baTags[i].nextElementSibling.classList)
+    if (baTags[i].nextElementSibling) {
+      removeClass(baTags[i].nextElementSibling, "fly-active")
+    }
+    if (baTags[i].getAttribute("href") === hightLight) {
+      const hightLightEle = baTags[i].nextElementSibling
+      addClass(hightLightEle, "fly-active")
+    }
+  }
+}
+
+// 鼠标点击跳转 模拟动画
+for (let i = 0; i < baTags.length; i++) {
+  baTags[i].onclick = function (e) {
+    e.preventDefault()
+    const li = e.currentTarget
+    const href = li.getAttribute("href")
+    const elePosition = document.querySelector(href).getBoundingClientRect()
+    const topY = elePosition.top
+    const currentY = window.scrollY
+    console.log(topY + currentY)
+    window.scrollTo(0, topY + currentY - 100)
+  }
+}
+
+// 声明时间曲线
+function animate (time) {
+  requestAnimationFrame(animate)
+  TWEEN.update(time)
+}
+requestAnimationFrame(animate)
+eleMap.backToTop.onclick = function (e) {
+  e.preventDefault()
+  const coords = { y: window.scrollY }
+  const tween = new TWEEN.Tween(coords)
+    .to({ y: 0 }, 1000)
+    .easing(TWEEN.Easing.Quadratic.InOut)
+    .onUpdate(() => {
+      window.scrollTo(0, coords.y)
+    })
+    .start()
 }

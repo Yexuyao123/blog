@@ -6,7 +6,9 @@
 	<link rel="stylesheet" href="./base.css">
 	<link rel="stylesheet" href="./a.css">
 	<link rel="stylesheet" href="./wrapper.css">
-	<script src="//at.alicdn.com/t/font_2059022_2ty752z46qh.js"></script>
+	<script src="//at.alicdn.com/t/font_2059022_wb5qweixcrm.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/"></script> -->
 </head>
 
 <body id="body" class="hidden">
@@ -19,46 +21,65 @@
 			<span class="RS">RS</span><span class="card">card</span>
 		</a>
 		<nav class="nav1">
-			<!-- 下面这几个标签是没有顺序的列表用ul包裹起来，ul里面必须有li儿子 -->
 			<ul class="clearfix a">
 				<li class="b">
-					<a href="#">关于</a>
+					<a class="ba" href="#userCard">关于</a>
+					<div class="fly1"></div>
+				</li>
+				<li class="b menuTigger">
+					<a class="ba" href="#zuopinji">作品</a>
+					<div class="fly1"></div>
+					<div class="rightTriangle"></div>
+					<ul class="submenu display-none hide">
+						<div class="topTriangle"> </div>
+						<li class="menu noswrap">作品1 ▼</li>
+						<li class="menu noswrap">作品2 ▼</li>
+						<li class="menu noswrap">作品3 ▼</li>
+					</ul>
+				</li>
+				<li class="b">
+					<a class="ba" href="#skill">技能</a>
+					<div class="fly1"></div>
+				</li>
+				<li class="b menuTigger">
+					<a class="ba" href="javascript:void(0)">博客</a>
+					<div class="fly1"></div>
+					<div class="rightTriangle"></div>
+					<ul class="submenu display-none hide">
+						<div class="topTriangle"> </div>
+						<li class="menu noswrap">博客1 ▼</li>
+						<li class="menu noswrap">博客2 ▼</li>
+						<li class="menu noswrap">博客3 ▼</li>
+					</ul>
+				</li>
+				<li class="b">
+					<a class="ba" href="javascript:void(0)">日历</a>
 					<div class="fly1"></div>
 				</li>
 				<li class="b">
-					<a href="#">作品</a>
+					<a class="ba" href="javascript:void(0)">联系方式</a>
 					<div class="fly1"></div>
 				</li>
 				<li class="b">
-					<a href="#">技能</a>
-					<div class="fly1"></div>
-				</li>
-				<li class="b">
-					<a href="#">博客</a>
-					<div class="fly1"></div>
-				</li>
-				<li class="b">
-					<a href="#">日历</a>
-					<div class="fly1"></div>
-				</li>
-				<li class="b">
-					<a href="#">联系方式</a>
-					<div class="fly1"></div>
-				</li>
-				<li class="b">
-					<a href="#">其他</a>
+					<a class="ba" href="javascript:void(0)" onClick="window.open()">其他</a>
 					<div class="fly1"></div>
 				</li>
 			</ul>
 		</nav>
-		<!-- nav是navigation导航条 -->
+		<div id="backToTop" class="flex-center">
+			<a class="ba" class="flex-center" href="#">
+				<svg class="icon1" aria-hidden="true">
+					<use xlink:href="#icon-fanhuidingbu2"></use>
+				</svg>
+			</a>
+		</div>
 	</div>
 	<div class="banner">
 		<div class="mask"></div>
 		<!-- 背景图片 -->
 	</div>
 	<main>
-		<div class="userCard">
+		<div id="userCard" class="userCard">
 			<div class="pictureAndText clearfix">
 				<div class="picture">
 					<img src="./img/avatar.png" width="300px" height="350px" alt="头像">
@@ -84,17 +105,18 @@
 			</div>
 			<footer class="media">
 				<a class="tubiao1"
-					href="https://www.douban.com/people/76200163/?dt_dapp=1&dt_platform=com.douban.activity.qq_session">
+					href="https://www.douban.com/people/76200163/?dt_dapp=1&dt_platform=com.douban.activity.qq_session"
+					target="_blank">
 					<svg class="icon" aria-hidden="true">
 						<use xlink:href="#icon-douban_F"></use>
 					</svg>
 				</a>
-				<a class="tubiao2" href="https://weibo.com/yyyexy?is_all=1">
+				<a class="tubiao2" href="https://weibo.com/yyyexy?is_all=1" target="_blank">
 					<svg class="icon" aria-hidden="true">
 						<use xlink:href="#icon-weibo"></use>
 					</svg>
 				</a>
-				<a class="tubiao3" href="https://github.com/Yexuyao123">
+				<a class="tubiao3" href="https://github.com/Yexuyao123" target="_blank">
 					<svg class="icon" aria-hidden="true">
 						<use xlink:href="#icon-github"></use>
 					</svg>
@@ -113,7 +135,7 @@
 			</p>
 		</div>
 	</main>
-	<section class="skill">
+	<section id="skill" class="skill margin-top100">
 		<h2>个人技能</h2>
 		<ol class="clearfix">
 			<li>HTML 5 &amp; CSS 3</li>
@@ -124,7 +146,7 @@
 			<li>HTTP</li>
 		</ol>
 	</section>
-	<section id="zuopinji" class="showreel">
+	<section id="zuopinji" class="showreel margin-top100">
 		<h2>作品集</h2>
 		<nav>
 			<ol class="clearfix">
