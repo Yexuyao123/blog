@@ -153,20 +153,6 @@ window.onbeforeunload = function (e) {
 //   }
 // }
 
-// 监听滚轮时间，节流
-let ifScroll = false
-window.onscroll = function (e) {
-  if (!ifScroll) { ifScroll = true }
-  if (ifScroll) {
-    addClass(eleMap.topNavBar, "sticky")
-    setTimeout(compareDelta, 3000)
-  }
-}
-function compareDelta () {
-  removeClass(eleMap.topNavBar, "sticky")
-  ifScroll = false
-}
-
 // 作品博客下拉菜单
 const liTags = document.getElementsByClassName("menuTigger")
 // 找到ul节点
@@ -207,10 +193,24 @@ for (let i = 0; i < liTags.length; i++) {
   }
 }
 
+// 监听滚轮时间，节流
+let ifScroll = false
+function compareDelta () {
+  removeClass(eleMap.topNavBar, "sticky")
+  ifScroll = false
+}
+function topNavBarSticky () {
+  if (!ifScroll) { ifScroll = true }
+  if (ifScroll) {
+    addClass(eleMap.topNavBar, "sticky")
+    setTimeout(compareDelta, 3000)
+  }
+}
 // 滚动划入+对应高亮
 const baTags = document.getElementsByClassName("ba")
 let hightLight = ""
 window.onscroll = function (e) {
+  topNavBarSticky()
   if (window.scrollY > 100 && window.scrollY < 400) {
     hightLight = "#userCard"
   } else if (window.scrollY > 400 && window.scrollY < 1100) {
