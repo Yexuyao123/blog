@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="CN-zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="bank">
+    <div class="count">
+      <p>您的账户余额为：</p>
+      <span id="amount">&&&amount&&&</span>
+      <p>元</p>
+    </div>
+    <button id="button">支付1元</button>
+
+    <form action="/pay" method="POST" target="result">
+      <input type="text" autocomplete="false" name="number1" value="1" placeholder="请输入支付钞票金额1(数值)">
+      <input type="text" autocomplete="false" name="number2" value="5" placeholder="请输入支付钞票金额2(数值)">
+      <input id="input" type="submit" value="支付">
+    </form>
+    <iframe name="result" src="about:blank" frameborder="0" height="200"></iframe>
+
+
+
+
+
+
+
+
+  </div>
+
+</body>
+<script type="text/javascript" src="./main.js"></script>
+
+</html>

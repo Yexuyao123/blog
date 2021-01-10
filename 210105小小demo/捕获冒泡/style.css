@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.pawpaw {
+  display: flex;
+  justify-content: center;
+  transition: all 0.2s linear;
+}
+#circle1 {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  border: 1px rgb(250, 124, 6) solid;
+}
+#circle2 {
+  border-radius: 75px;
+}
+#circle3 {
+  border-radius: 100px;
+}
+#circle4 {
+  border-radius: 125px;
+}
+#circle5 {
+  border-radius: 150px;
+}
+#circle6 {
+  border-radius: 175px;
+}
+#circle7 {
+  border-radius: 200px;
+  margin: 25px auto;
+}
+
+.cir {
+  padding: 25px;
+  /* border: 1px black solid; */
+}
+.circle.redToOrange {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(252, 0, 0, 1) 0%,
+    rgba(247, 136, 0, 1) 88%
+  );
+}
+.circle.orangeToYellow {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(242, 28, 0, 1) 1%,
+    rgba(247, 136, 0, 1) 55%,
+    rgba(226, 242, 0, 1) 88%
+  );
+}
+.circle.yellowToGreen {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(247, 136, 0, 1) 1%,
+    rgba(226, 242, 0, 1) 55%,
+    rgba(4, 255, 17, 1) 90%
+  );
+}
+.circle.greeToBlue {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(226, 242, 0, 1) 1%,
+    rgba(0, 242, 12, 1) 52%,
+    rgba(2, 151, 250, 1) 70%
+  );
+}
+.circle.blueToPink {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(0, 242, 12, 1) 1%,
+    rgba(2, 151, 250, 1) 58%,
+    rgba(152, 3, 251, 1) 70%
+  );
+}
+.circle.pinkToPurple {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(2, 151, 250, 1) 1%,
+    rgba(152, 3, 251, 1) 65%,
+    rgba(255, 1, 191, 1) 77%
+  );
+}
+.circle.purpleToRed {
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    rgba(152, 3, 251, 1) 1%,
+    rgba(255, 1, 191, 1) 66%,
+    rgba(255, 1, 1, 1) 78%
+  );
+}

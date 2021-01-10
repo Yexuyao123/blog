@@ -1,0 +1,82 @@
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.topNavBar {
+  padding: 20px 5px 20px 15px;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 1.5s;
+  color: #b7b7b7;
+}
+
+.topNavBar > nav > ul > li > a {
+  float: left;
+  font-size: 12px;
+  color: inherit;
+  font-weight: bold;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  display: block;
+  cursor: default;
+}
+
+.picture {
+  float: left;
+  margin: 50px 65px 50px 60px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.text {
+  float: left;
+  color: #646967;
+  height: 353px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 470px;
+}
+
+.skill ol:hover {
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.skill > ol > li::before {
+  content: "";
+  background-color: #d3b6b7;
+  height: 5px;
+  width: 95%;
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  border-radius: 2px;
+}
+
+.show {
+  transform-origin: left;
+  animation: flyRight 0.2s linear;
+}
+.hide {
+  animation: flyDisapear 4000ms linear;
+}
+@keyframes flyRight {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes flyDisapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
