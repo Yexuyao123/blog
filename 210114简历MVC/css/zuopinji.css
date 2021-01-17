@@ -1,0 +1,108 @@
+.showreel {
+  max-width: 940px;
+  margin: 60px auto 100px;
+}
+.showreel > nav {
+  width: 245px;
+  height: 59px;
+  margin: 32px auto 0;
+}
+.showreel > nav > ol > li {
+  float: left;
+  font-family: "Microsoft YaHei";
+  color: #3c3d3d;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.showreel > nav > ol > li:nth-child(3) {
+  margin-right: 0;
+}
+.showreel .bar-bottom {
+  height: 5px;
+  margin: 5px 0 28px;
+  background-color: white;
+  border-radius: 2px;
+}
+#portfolioBar {
+  transition: all 0.3s;
+}
+.showreel .state-1 {
+  height: 5px;
+  margin-top: 0;
+  width: 32px;
+  background-color: #e06567;
+  border-radius: 2px;
+}
+.showreel .state-2 {
+  height: 5px;
+  margin-top: 0;
+  width: 32px;
+  background-color: #e06567;
+  border-radius: 2px;
+  margin-left: 72px;
+}
+.showreel .state-3 {
+  height: 5px;
+  margin-top: 0;
+  width: 100px;
+  background-color: #e06567;
+  border-radius: 2px;
+  margin-left: 142px;
+}
+.jobs {
+  overflow: hidden;
+}
+
+.jobs #picturejobs1 {
+  display: block;
+}
+.showreel .jobs-1 .big {
+  float: left;
+  width: 606px;
+  height: 597px;
+  animation: appear1 1s linear;
+}
+.showreel .jobs-1 .small {
+  width: 293px;
+  height: 285px;
+  margin-left: 647px;
+  animation: appear2 1s linear;
+}
+.showreel .jobs-1 .small-1 {
+  margin-bottom: 27px;
+  animation: appear2 1s linear;
+}
+
+.jobs #picturejobs2 {
+  display: none;
+}
+.showreel .jobs-2 .big {
+  float: left;
+  width: 606px;
+  height: 597px;
+  animation: appear1 1s linear;
+}
+.showreel .jobs-2 .small {
+  width: 293px;
+  height: 285px;
+  margin-left: 647px;
+  animation: appear2 1s linear;
+}
+
+.jobs #picturejobs3 {
+  display: none;
+  position: relative;
+  animation: appear2 1s linear;
+}
+.showreel .jobs-3 .small {
+  width: 293px;
+  height: 285px;
+}
+.showreel .jobs-3 .small-1 {
+  margin-bottom: 27px;
+}
+.showreel .jobs-3 .small-2 {
+  margin-left: 320px;
+  position: absolute;
+  top: 0;
+}

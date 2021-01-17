@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Yexy的简历</title>
+	<link href="https://cdn.bootcdn.net/ajax/libs/Swiper/6.4.1/swiper-bundle.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/base.css">
+	<link rel="stylesheet" href="./css/animation.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/topNavBar.css">
+	<link rel="stylesheet" href="./css/banner.css">
+	<link rel="stylesheet" href="./css/usercard.css">
+	<link rel="stylesheet" href="./css/skill.css">
+	<link rel="stylesheet" href="./css/zuopinji.css">
+	<link rel="stylesheet" href="./css/swiper.css">
+	<link rel="stylesheet" href="./css/wrapper.css">
+	<script src="https://cdn.bootcdn.net/ajax/libs/Swiper/6.4.1/swiper-bundle.min.js"></script>
+	<script src="//at.alicdn.com/t/font_2059022_wb5qweixcrm.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+
+<body id="body" class="hidden">
+	<div id="wrapper" class="wrapper flex-center"></div>
+
+	<div id="topNavBar" class="topNavBar clearfix">
+		<a class="logo" href="#" alt="logo">
+			<span class="RS">RS</span><span class="card">card</span>
+		</a>
+		<nav class="nav1">
+			<ul class="clearfix a">
+				<li class="b">
+					<a class="ba" href="#userCard">关于</a>
+					<div class="fly1"></div>
+				</li>
+				<li class="b menuTrigger">
+					<a class="ba" href="#zuopinji">作品</a>
+					<div class="fly1"></div>
+					<div class="rightTriangle"></div>
+					<ul class="submenu display-none hide">
+						<div class="topTriangle"> </div>
+						<li class="menu noswrap">作品1 ▼</li>
+						<li class="menu noswrap">作品2 ▼</li>
+						<li class="menu noswrap">作品3 ▼</li>
+					</ul>
+				</li>
+				<li class="b">
+					<a class="ba" href="#skill">技能</a>
+					<div class="fly1"></div>
+				</li>
+				<li class="b menuTrigger">
+					<a class="ba" href="javascript:void(0)">博客</a>
+					<div class="fly1"></div>
+					<div class="rightTriangle"></div>
+					<ul class="submenu display-none hide">
+						<div class="topTriangle"> </div>
+						<li class="menu noswrap">博客1 ▼</li>
+						<li class="menu noswrap">博客2 ▼</li>
+						<li class="menu noswrap">博客3 ▼</li>
+					</ul>
+				</li>
+				<li class="b">
+					<a class="ba" href="javascript:void(0)">日历</a>
+					<div class="fly1"></div>
+				</li>
+				<li class="b">
+					<a class="ba" href="javascript:void(0)">联系方式</a>
+					<div class="fly1"></div>
+				</li>
+				<li class="b">
+					<a class="ba" href="javascript:void(0)" onClick="window.open()">其他</a>
+					<div class="fly1"></div>
+				</li>
+			</ul>
+		</nav>
+		<div id="backToTop" class="flex-center">
+			<a class="backToTop" class="flex-center" href="#">
+				<svg class="icon1" aria-hidden="true">
+					<use xlink:href="#icon-fanhuidingbu2"></use>
+				</svg>
+			</a>
+		</div>
+	</div>
+
+	<div class="banner">
+		<div class="mask"></div>
+	</div>
+
+	<main>
+		<div id="userCard" class="userCard">
+			<div class="pictureAndText clearfix">
+				<div class="picture">
+					<img src="./img/avatar.png" width="300px" height="350px" alt="头像">
+				</div>
+				<div class="text">
+					<span class="welcome">Hello
+						<span class="traingle"></span>
+					</span>
+					<h1>叶旭瑶</h1>
+					<p>前端开发工程师</p>
+					<hr>
+					<dl class="clearfix">
+						<dt>年龄</dt>
+						<dd>26</dd>
+						<dt>所在城市</dt>
+						<dd>厦门</dd>
+						<dt>我的邮箱</dt>
+						<dd>584604539@qq.com</dd>
+						<dt>手机</dt>
+						<dd>1885052****</dd>
+					</dl>
+				</div>
+			</div>
+			<footer class="media">
+				<a class="tubiao1"
+					href="https://www.douban.com/people/76200163/?dt_dapp=1&dt_platform=com.douban.activity.qq_session"
+					target="_blank">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-douban_F"></use>
+					</svg>
+				</a>
+				<a class="tubiao2" href="https://weibo.com/yyyexy?is_all=1" target="_blank">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-weibo"></use>
+					</svg>
+				</a>
+				<a class="tubiao3" href="https://github.com/Yexuyao123" target="_blank">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-github"></use>
+					</svg>
+				</a>
+			</footer>
+		</div>
+		<a class="download-pdf" href="./resume.pdf" target="_blank" download>
+			下载 PDF 简历
+		</a>
+		<div class="selfIntroduction">
+			<p>
+				叶旭瑶，前端入门学习中
+			</p>
+			<p>
+				技能：Microsoft office , Photoshop ，鸿业市政道路设计
+			</p>
+		</div>
+	</main>
+
+	<section id="skill" class="skill margin-top100">
+		<h2>个人技能</h2>
+		<ol class="clearfix">
+			<li>HTML 5 &amp; CSS 3</li>
+			<li>Javascript</li>
+			<li>jQuery</li>
+			<li>Vue</li>
+			<li>react</li>
+			<li>HTTP</li>
+		</ol>
+	</section>
+
+	<section id="zuopinji" class="showreel margin-top100">
+		<h2>作品集</h2>
+		<nav>
+			<ol class="clearfix">
+				<li id="portfolio1">所有</li>
+				<li id="portfolio2">框架</li>
+				<li id="portfolio3">原生JS &amp; CSS</li>
+			</ol>
+			<div class="bar-bottom">
+				<div id="portfolioBar" class="state-1"></div>
+			</div>
+		</nav>
+		<div class="jobs">
+			<div id="picturejobs1" class="jobs-1">
+				<div class="big">
+					<img src="./img/1.jpg" alt="作品集">
+				</div>
+				<div class="small small-1">
+					<img src="./img/2.jpg" alt="作品集">
+				</div>
+				<div class="small">
+					<img src="./img/3.jpg" alt="作品集">
+				</div>
+			</div>
+			<div id="picturejobs2" class="jobs-2">
+				<div class="big">
+					<img src="./img/1.jpg" alt="作品集">
+				</div>
+				<div class="small small-1">
+					<img src="./img/2.jpg" alt="作品集">
+				</div>
+			</div>
+			<div id="picturejobs3" class="jobs-3">
+				<div class="small small-1">
+					<img src="./img/2.jpg" alt="作品集">
+				</div>
+				<div class="small small-2">
+					<img src="./img/3.jpg" alt="作品集">
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section id="zuopinzhanshi" class="margin-top100">
+		<h2>作品展示</h2>
+		<div id="mySwiper" class="swiper flex-center">
+			<!-- Slider main container -->
+			<div class="swiper-container">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+					<!-- Slides -->
+					<div class="swiper-slide"><img src="./img/works/bagua.jpg" alt="作品展示" width="999px" height="666px"></div>
+					<div class="swiper-slide"><img src="./img/works/canvas.jpg" alt="作品展示" width="999px" height="666px"></div>
+					<div class="swiper-slide"><img src="./img/works/capture.jpg" alt="作品展示" width="999px" height="666px"></div>
+					<div class="swiper-slide"><img src="./img/works/keyboard.jpg" alt="作品展示" width="999px" height="666px"></div>
+					<div class="swiper-slide"><img src="./img/works/lalalunbo.jpg" alt="作品展示" width="999px" height="666px"></div>
+				</div>
+			</div>
+			<!-- If we need pagination 页码 -->
+			<div class="swiper-pagination"></div>
+			<!-- If we need navigation buttons -->
+			<div class="swiper-button-prev flex-center"></div>
+			<div class="swiper-button-next flex-center"></div>
+		</div>
+
+	</section>
+
+	<!-- <script type="module" src="./js/util.js"></script> -->
+	<script type="module" src="./js/wrapper-loading.js"></script>
+	<script type="module" src="./js/click-smoothlyToAim.js"></script>
+	<script type="module" src="./js/click-backToTop.js"></script>
+	<script type="module" src="./js/topNavSticky.js"></script>
+	<script type="module" src="./js/scroll-Highlight.js"></script>
+	<script type="module" src="./js/topnav-menu.js"></script>
+	<script type="module" src="./js/click-zuopingjiNav.js"></script>
+	<script src="./js/swiper.js"></script>
+</body>
+
+</html>

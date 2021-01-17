@@ -1,0 +1,8 @@
+.banner {
+  background-image: url(/img/milu1.jpg);
+  height: 520px;
+}
+.banner .mask {
+  height: 520px;
+  background-color: rgba(0, 0, 0, 0.3);
+}

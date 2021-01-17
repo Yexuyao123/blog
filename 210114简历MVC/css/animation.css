@@ -1,0 +1,88 @@
+@keyframes fly {
+  from {
+    transform: translateX(0%);
+    width: 0;
+  }
+  to {
+    transform: translateX(0%);
+    width: 100%;
+  }
+}
+@keyframes fly2 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes appear1 {
+  0% {
+    transform: translate(-100%, 0%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+@keyframes appear2 {
+  0% {
+    transform: translate(100%, 0%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+@keyframes flyRight {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes flyDisapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fly-active {
+  background-color: #e06567;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  animation: fly 0.5s linear;
+}
+.b:hover .fly1 {
+  background-color: #e06567;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  animation: fly 0.5s linear;
+}
+
+.show {
+  transform-origin: left;
+  animation: flyRight 0.2s linear;
+}
+.hide {
+  animation: flyDisapear 4000ms linear;
+}
+
+@keyframes slideUp {
+  from {
+    padding-top: 200px;
+  }
+  to {
+    padding-top: 0px;
+  }
+}
+.slideUp {
+  animation: slideUp 300ms linear;
+}

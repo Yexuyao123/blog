@@ -1,0 +1,50 @@
+#zuopinzhanshi > h2 {
+  margin-bottom: 50px;
+}
+#zuopinzhanshi {
+  margin-bottom: 100px;
+}
+.swiper-container {
+  width: 999px;
+  height: 666px;
+  position: relative;
+  z-index: 0;
+}
+.swiper-slide {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.swiper {
+  position: relative;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 293px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: rgba(100, 149, 237, 0.1);
+  color: rgb(105, 153, 243);
+  font-size: 20px;
+  font-weight: bold;
+}
+.swiper-button-prev {
+  left: 400px;
+}
+.swiper-button-next {
+  right: 400px;
+}
+.swiper-pagination {
+  position: absolute;
+  top: 700px;
+}
+.swiper-pagination-bullet {
+  margin: 0 20px;
+  font-size: 12px;
+  width: 1em;
+  height: 1em;
+}
+.swiper-button-hidden {
+  opacity: 0.5;
+}
