@@ -21,9 +21,9 @@ import { changeClass, show, hide } from "./util.js"
       }
       const that = this
       function addTabEvent (tab, index) {
-        console.log(that) // 指向外部this
+        // console.log(that) // 指向外部this
         tab.addEventListener("click", () => {
-          changeClass(this.view.bar, `state-${index + 1}`) // "state-" + (index + 1) 反引号 `` 内支持运算，用${}包裹 // ['state',index+1].join('-')
+          changeClass(that.view.bar, `state-${index + 1}`) // "state-" + (index + 1) 反引号 `` 内支持运算，用${}包裹 // ['state',index+1].join('-')
           jobsChildren.forEach((el, j) => index !== j && hide(el))
           show(jobsChildren[index])
         })

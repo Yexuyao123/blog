@@ -51,8 +51,10 @@ import { addClass, removeClass, eleMap } from "./util.js"
         this.slideUpActive("skill")
       } else if (window.scrollY > 1100 && window.scrollY < 1500) {
         this.slideUpActive("zuopinji")
-      } else if (window.scrollY > 1500) {
+      } else if (window.scrollY > 1500 && window.scrollY < 2350) {
         this.slideUpActive("zuopinzhanshi")
+      } else if (window.scrollY > 2350) {
+        this.slideUpActive("messages")
       }
     }
 

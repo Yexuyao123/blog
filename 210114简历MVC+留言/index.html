@@ -14,9 +14,11 @@
 	<link rel="stylesheet" href="./css/zuopinji.css">
 	<link rel="stylesheet" href="./css/swiper.css">
 	<link rel="stylesheet" href="./css/wrapper.css">
+	<link rel="stylesheet" href="./css/messages.css">
 	<script src="https://cdn.bootcdn.net/ajax/libs/Swiper/6.4.1/swiper-bundle.min.js"></script>
 	<script src="//at.alicdn.com/t/font_2059022_wb5qweixcrm.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.9.0/dist/av-min.js"></script>
 </head>
 
 <body id="body" class="hidden">
@@ -223,6 +225,46 @@
 
 	</section>
 
+
+	<section id="messages" class="messages margin-top100">
+		<h2>留言</h2>
+		<div class="liuyanban">
+			<div id="messageList" class="flex-center">
+				<ol class="messageList">
+					<!-- <li class="messageStyle">
+						<div class="messageName">徐佳莹</div>
+						<div class="messageContent">布丁有布丁的骄纵</div>
+						<div class="messageTime">2021年1月18日 16:03</div>
+					</li> -->
+				</ol>
+			</div>
+			<div class="message-form flex-center">
+				<form id="postMessageForm" action="">
+					<div class="form-tips">名字:</div>
+					<div class="input_name">
+						<input type="text" name="name" autocomplete="off" value="">
+					</div>
+					<div class="form-tips">留言:</div>
+					<div class="input_content">
+						<input type="text" name="content" autocomplete="off" value="">
+					</div>
+					<div class="input_submit">
+						<input id="inputSubmit" type="submit" value="提交">
+					</div>
+				</form>
+			</div>
+
+
+
+		</div>
+
+
+	</section>
+
+
+
+
+
 	<!-- <script type="module" src="./js/util.js"></script> -->
 	<script type="module" src="./js/wrapper-loading.js"></script>
 	<script type="module" src="./js/click-smoothlyToAim.js"></script>
@@ -231,6 +273,7 @@
 	<script type="module" src="./js/scroll-Highlight.js"></script>
 	<script type="module" src="./js/topnav-menu.js"></script>
 	<script type="module" src="./js/click-zuopingjiNav.js"></script>
+	<script type="module" src="./js/messages.js"></script>
 	<script src="./js/swiper.js"></script>
 </body>
 

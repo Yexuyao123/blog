@@ -1,0 +1,91 @@
+.messages {
+  max-width: 940px;
+  margin: 60px auto 0;
+}
+.messages > h2 {
+  margin-bottom: 40px;
+}
+.messages > .liuyanban {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+.messages > .liuyanban:hover {
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.message-form {
+  max-width: 940px;
+  padding: 50px 20px;
+  background-color: rgb(255, 255, 253);
+}
+#postMessageForm {
+  max-width: 800px;
+  padding: 10px;
+  color: #4d4b4b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-tips {
+  font-size: 20px;
+}
+#postMessageForm > div {
+  margin: 0 6px;
+}
+#postMessageForm > div > input {
+  /* 去除默认样式 */
+  -web-kit-appearance: none;
+  -moz-appearance: none;
+  /* 加边框圆角，设置input高度和字体 */
+  font-size: 18px;
+  /* height: 24px; */
+  border-radius: 4px;
+  border: 1px solid #c8cccf;
+  padding: 6px 15px;
+  color: #6a6f77;
+  /* 将input输入框的轮廓去掉： */
+  /* outline: 0; */
+  outline-color: rgb(51, 100, 136);
+}
+.input_submit > #inputSubmit {
+  background-color: rgb(54, 112, 153);
+  color: rgb(255, 253, 253);
+}
+.input_submit:hover {
+  box-shadow: 0px 1px 1px 1px rgba(44, 44, 44, 0.1);
+  background-color: rgb(255, 253, 253);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.messageStyle {
+  /* border-bottom: 2px rgba(128, 128, 128, 0.5) solid; */
+  border-bottom: 1px #e6686a solid;
+  padding: 20px 5px;
+  display: block;
+}
+.messageName {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4d4b4b;
+}
+.messageContent {
+  font-size: 16px;
+  color: rgb(118, 118, 129);
+  padding: 10px 0;
+}
+.messageTime {
+  font-size: 14px;
+  color: rgb(118, 118, 129);
+  padding-left: 600px;
+  padding-right: 10px;
+  font-style: italic;
+}
+#messageList,
+#messageList > ol {
+  background-color: rgb(255, 253, 253);
+  overflow: hidden;
+}
+#messageList {
+  padding: 30px 0;
+}

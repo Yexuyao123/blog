@@ -5,8 +5,10 @@ function getElement (id) {
 // 生成一个element
 function addLabel (laber, attributes) {
   const element = document.createElement(laber)
-  for (const key in attributes) {
-    element[key] = attributes[key]
+  if (arguments.length === 2){
+    for (const key in attributes) {
+      element[key] = attributes[key]
+    }
   }
   return element
 }
@@ -32,7 +34,7 @@ function hide (el) {
   el.style.display = "none"
 }
 
-const getEls = ["portfolio1", "portfolio2", "portfolio3", "portfolioBar", "picturejobs1", "picturejobs2", "picturejobs3", "zuopinji", "wrapper", "topNavBar", "body", "backToTop", "userCard", "skill", "zuopinzhanshi"]
+const getEls = ["portfolio1", "portfolio2", "portfolio3", "portfolioBar", "picturejobs1", "picturejobs2", "picturejobs3", "zuopinji", "wrapper", "topNavBar", "body", "backToTop", "userCard", "skill", "zuopinzhanshi", "messages","postMessageForm"]
 const eleMap = {}
 getEls.forEach(id => {
   eleMap[id] = getElement(id)
