@@ -1,13 +1,12 @@
 import { addLabel, addClass, removeClass, eleMap } from "./util.js"
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
 
 // eslint-disable-next-line no-unused-expressions
 !(function () {
-  const view = eleMap.wrapper
-  const controller = {
-    view: null,
+  const view = View("#wrapper")
+  const controller = Controller1({
     init: function (view) {
-      this.view = view
-      this.bindEvents()
       this.active()
       this.time()
     },
@@ -33,7 +32,8 @@ import { addLabel, addClass, removeClass, eleMap } from "./util.js"
         removeClass(eleMap.body, "hidden")
       }, 3000)
     }
-  }
+  })
+  
   // eslint-disable-next-line no-useless-call
   controller.init.call(controller, view)
 }.call())

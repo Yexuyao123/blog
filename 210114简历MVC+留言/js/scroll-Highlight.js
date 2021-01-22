@@ -1,16 +1,17 @@
 import { addClass, removeClass, eleMap } from "./util.js"
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
 
 // eslint-disable-next-line no-unused-expressions
 !(function () {
   // 滚动划入+对应高亮
-  const view = document.getElementsByClassName("ba")
-  const controller = {
-    view: null,
-    hightLight: null,
+  const view = View(".ba",true)
+  const controller = Controller1({
+    status:{
+      hightLight:null
+    },
     init: function (view) {
-      this.view = view
       this.hightLight = ""
-      this.bindEvents()
     },
     bindEvents: function () {
       window.addEventListener("scroll", () => {
@@ -19,7 +20,6 @@ import { addClass, removeClass, eleMap } from "./util.js"
         this.flyActive(this.hightLight)
       })
     },
-
     slideUpActive: function (current) {
       addClass(eleMap[current], "slideUp")
       setTimeout(removeClass(eleMap[current], "margin-top100"), 5000)
@@ -57,8 +57,8 @@ import { addClass, removeClass, eleMap } from "./util.js"
         this.slideUpActive("messages")
       }
     }
+  })
 
-  }
   // eslint-disable-next-line no-useless-call
   controller.init.call(controller, view)
 }.call())

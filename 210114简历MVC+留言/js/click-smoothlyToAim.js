@@ -1,12 +1,10 @@
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
+
 !(function () {
   // 鼠标点击跳转 模拟动画
-  const view = document.getElementsByClassName("ba")
-  const controller = {
-    view: null,
-    init: function (view) {
-      this.view = view
-      this.bindEvents()
-    },
+  const view = View("li>.ba",true)
+  const controller = Controller1({
     bindEvents: function () {
       for (let i = 0; i < this.view.length; i++) {
         this.view[i].addEventListener("click", this.methods.gotoTarget)
@@ -22,6 +20,6 @@
         window.scrollTo(0, elePosition.top + window.scrollY - 100)
       }
     }
-  }
-  controller.init.call(controller, view)
+  })
+  controller.init(view)
 }.call())

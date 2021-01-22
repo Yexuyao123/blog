@@ -1,14 +1,12 @@
 // 获取标签通过id
 function getElement (id) {
-  return document.getElementById(id)
+  return document.querySelector(`#${id}`)
 }
 // 生成一个element
-function addLabel (laber, attributes) {
+function addLabel (laber, attributes = {}) {
   const element = document.createElement(laber)
-  if (arguments.length === 2){
-    for (const key in attributes) {
-      element[key] = attributes[key]
-    }
+  for (const key in attributes) {
+    element[key] = attributes[key]
   }
   return element
 }
@@ -33,10 +31,14 @@ function show (el, display = "block") { // display默认block，之后的参数�
 function hide (el) {
   el.style.display = "none"
 }
+function getInputValue(query,container = document){
+  let el = typeof query === 'string'? container.querySelector(query):query
+  return el ? el.value: ''
+}
 
 const getEls = ["portfolio1", "portfolio2", "portfolio3", "portfolioBar", "picturejobs1", "picturejobs2", "picturejobs3", "zuopinji", "wrapper", "topNavBar", "body", "backToTop", "userCard", "skill", "zuopinzhanshi", "messages","postMessageForm"]
 const eleMap = {}
 getEls.forEach(id => {
   eleMap[id] = getElement(id)
 })
-export { getElement, addLabel, addClass, removeClass, changeClass, getTagName, eleMap, show, hide }
+export {getInputValue, getElement, addLabel, addClass, removeClass, changeClass, getTagName, eleMap, show, hide }

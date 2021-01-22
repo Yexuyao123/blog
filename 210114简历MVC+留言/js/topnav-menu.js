@@ -1,15 +1,12 @@
 import { addClass, removeClass } from "./util.js"
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
 
 // 作品博客下拉菜单
 // eslint-disable-next-line no-unused-expressions
 !(function () {
-  const view = document.getElementsByClassName("menuTrigger") // trigger
-  const controller = {
-    view: null,
-    init: function (view) {
-      this.view = view
-      this.bindEvents()
-    },
+  const view = View(".menuTrigger",true) // trigger
+  const controller = Controller1({
     bindEvents: function () {
       for (let i = 0; i < this.view.length; i++) {
         this.view[i].addEventListener("mouseenter", this.active)
@@ -38,7 +35,8 @@ import { addClass, removeClass } from "./util.js"
       const fly1 = li.getElementsByClassName("fly1")[0]
       return { brother, fly1 }
     }
-  }
+  })
+  
   // eslint-disable-next-line no-useless-call
-  controller.init.call(controller, view)
+  controller.init(view)
 }.call())

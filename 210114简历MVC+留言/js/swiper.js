@@ -1,11 +1,12 @@
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
+
 // eslint-disable-next-line no-unused-expressions
 !(function () {
   // 作品展示轮播Swiper
-  const view = document.querySelector("#mySwiper")
-  const controller = {
-    view: null,
+  const view = View("#mySwiper")
+  const controller = Controller1({
     init: function (view) {
-      this.view = view
       this.swiperInit()
     },
     swiperInit: function () {
@@ -21,7 +22,8 @@
         }
       })
     }
-  }
+  })
+  
   // eslint-disable-next-line no-useless-call
-  controller.init.call(controller, view)
+  controller.init(view)
 }.call())

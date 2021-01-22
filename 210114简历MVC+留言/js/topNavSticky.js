@@ -1,17 +1,18 @@
-import { addClass, removeClass, eleMap } from "./util.js"
+import { addClass, removeClass } from "./util.js"
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
 
 // eslint-disable-next-line no-unused-expressions
 !(function () {
   // 监听滚轮时间，节流
-  const view = eleMap.topNavBar
-  const controller = {
-    view: null,
-    scrollState: false,
-    timer: null,
-    init: function (view, initState) {
-      this.view = view
-      this.scrollState = initState
-      this.bindEvents()
+  const view = View("#topNavBar")
+  const controller = Controller1({
+    status:{
+      scrollState:false,
+      timer: null
+    },
+    init: function (view) {
+      this.status.scrollState = false
     },
     bindEvents: function () {
       window.addEventListener(
@@ -42,7 +43,8 @@ import { addClass, removeClass, eleMap } from "./util.js"
         this.deactive()
       }, 3000)
     }
-  }
+  })
+  
   // eslint-disable-next-line no-useless-call
-  controller.init.call(controller, view, false)
+  controller.init(view)
 }.call())

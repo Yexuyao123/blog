@@ -1,15 +1,12 @@
-import { eleMap } from "./util.js"
+import { View } from "./base/view.js"
+import { Controller1 } from "./base/controller.js"
 // 声明时间曲线
 
-(function () {
+!(function () {
   // 鼠标点击回到顶部
-  const view = eleMap.backToTop
-  const controller = {
-    view: null,
-    init: function (view) {
-      this.view = view
-      this.bindEvents()
-    },
+  const view = View("#backToTop")
+
+  const controller = Controller1({
     bindEvents: function () {
       this.view.addEventListener("click", (e) => {
         e.preventDefault()
@@ -31,6 +28,6 @@ import { eleMap } from "./util.js"
         })
         .start()
     }
-  }
-  controller.init.call(controller, view)
+  })
+  controller.init(view)
 }.call())
