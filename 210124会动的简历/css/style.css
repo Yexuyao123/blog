@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: black;
+  font-size: 16px;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid black; */
+  display: flex;
+  overflow: hidden;
+}
+
+/* 打印机样式 */
+.token.comment {
+  color: black;
+}
+.token.selector {
+  color: black;
+}
+.token.property {
+  color: black;
+}
+.token.punctuation {
+  color: black;
+}
+.token.function {
+  color: black;
+}
+#codeContainer {
+  box-sizing: border-box;
+  width: 25%;
+  height: 100%;
+}
+
+/* paper样式 */
+/* .paper {
+  flex: 1;
+  height: 100%;
+  background-color: blanchedalmond;
+  border: 1px rgb(49, 31, 31) solid;
+  box-sizing: border-box;
+  padding: 20px;
+  transform:rotate(360);
+} */
